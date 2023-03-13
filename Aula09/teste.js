@@ -1,4 +1,4 @@
-//  CRIANDO MÓDULO PERSONALIZADO //
+//  CRIANDO MÓDULO PERSONALIZADO E EXPORTÁ-LO//
 //  FORA DO PADRÃO DO NODE      //
 
 function helloWorld(){
