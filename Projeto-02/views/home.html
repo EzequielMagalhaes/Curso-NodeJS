@@ -1,0 +1,99 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+<body>
+    <header>
+        <div class="center">
+            <div class="navbar">
+                    <i class="bi bi-list"></i>
+            </div><!--navbar-->
+            <div class="logo">
+                <a href="/home"><h2><span>Portal</span><b>News</b></h2></a>
+            </div><!--logo-->
+            <div class="form-busca">
+                <form>
+                    <div class="searchIcon"><!--Separar os icones em div pra poder estilizar-->
+                        <i class="bi bi-search"></i>
+                    </div>
+                    <input type="text" id="busca" name="busca" placeholder="Buscar" autocomplete="off">
+                    <input type="button" id="btn-clear" value="x">
+                    <div class="deleteIcon">
+                        <i class="bi bi-trash"></i>
+                    </div>
+
+                </form>
+            </div><!--form-busca-->
+        </div><!--center-->
+    </header>
+
+    <section class="featured-news">
+        <div class="center">
+            <div class="featured-img">
+                <div class="featured-overlay"></div> <!--div vazia-->
+                <div class="featured-title-description">
+                    <h2>Campos verdes montanhosos</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sodales quis leo eu pulvinar. Nam et venenatis orci. Morbi purus ipsum, mattis in dictum eget, rutrum vitae enim. Quisque nec hendrerit purus. Quisque venenatis lorem sit amet enim feugiat, nec dignissim justo eleifend. Nam facilisis elit eu turpis aliquam, sed lobortis ligula convallis.</p>
+                </div><!--título da notícia destaque-->
+                <img src="../public/images/landscape.jpg" alt="Notícia destaque"/>
+            </div><!--img da notícia destaque-->
+        </div><!--center-->
+    </section><!--notícias em destaque-->
+
+    <section class="other-news">
+        <div class="title-other-news">
+            <h2>Últimas notícias</h2>
+            <br/>
+            <div class="center">
+                <div class="last-news">
+                    <div class="box-last-news">
+                        <img src="../public/images/img3.jpeg" alt="Últimas notícias"/>
+                        <div class="box-last-news-content">
+                            <h3 class="box-last-news-category">CATEGORIA</h3>
+                            <h2 class="box-last-news-title">TÍTULO DA NOTÍCIA</h2>
+                            <p class="box-last-news-half-news">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sodales quis leo eu pulvinar. Nam et venenatis orci. Morbi purus ipsum, mattis in dictum eget, rutrum vitae enim. Quisque nec hendrerit purus.</p>
+                            <a href="/titulo-da-noticia">Ler mais</a>
+                        </div><!--conteúdo da box sem a imagem-->
+                    </div><!--box das últimas notícias 1-->
+                    <div class="box-last-news">
+                        <img src="../public/images/img3.jpeg"/>
+                        <div class="box-last-news-content">
+                            <h3 class="box-last-news-category">CATEGORIA</h3>
+                            <h2 class="box-last-news-title">TÍTULO DA NOTÍCIA</h2>
+                            <p class="box-last-news-half-news">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sodales quis leo eu pulvinar. Nam et venenatis orci. Morbi purus ipsum, mattis in dictum eget, rutrum vitae enim. Quisque nec hendrerit purus.</p>
+                            <a href="/titulo-ultima-noticia">Ler mais</a>
+                        </div><!--conteúdo da box sem a imagem-->
+                    </div><!--box das últimas notícias 2-->
+                </div><!--últimas notícias-->
+
+                <div class="most-viewed">
+                    <div class="most-viewed-title">
+                        <h3>Mais Lidas</h3>
+                    </div>
+                    <div class="box-most-viewed">
+                        <img src="../public/images/fotografo.jpg" alt="Notícia mais vista">
+                        <div class="box-most-viewed-content">
+                            <h3 class="box-most-viewed-category">Fotógrafo</h3>
+                            <p class="box-most-viewed-half-news">A fotografia tem uma tarefa muito importante e de grande responsabilidade na nossa vida. Ela conta nossa história, nossa identidade, evolução e nossas grandes conquistas.</p>
+                            <a href="/titulo-noticia-mais-vista">Ler mais</a>
+                        </div><!--conteudo da box sem a imagem-->
+                    </div><!--box das notícias mais vistas 1-->
+                    <div class="box-most-viewed">
+                        <img src="../public/images/fotografo.jpg" alt="Notícia mais vista">
+                        <div class="box-most-viewed-content">
+                            <h3 class="box-most-viewed-category">Fotógrafo</h3>
+                            <p class="box-most-viewed-half-news">A fotografia tem uma tarefa muito importante e de grande responsabilidade na nossa vida. Ela conta nossa história, nossa identidade, evolução e nossas grandes conquistas.</p>
+                            <a href="/titulo-noticia-mais-vista">Ler mais</a>
+                        </div><!--conteudo da box sem a imagem-->
+                    </div><!--box das notícias mais vistas 2-->
+                </div><!--notícias mais vistas-->
+            </div><!--center-->
+        </div><!--título de outras notícias-->
+    </section><!--outras notícias-->
+
+    <script src="../public/script.js"></script>
+</body>
+</html>
