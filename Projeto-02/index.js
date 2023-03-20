@@ -17,14 +17,16 @@ app.get('/',(req,res)=>{ // pagina home
     console.log(req.query); // url:port/'?busca= xx'
     
     if(req.query.busca == null){
-        res.render('home',{})
+        res.render('home',{});
     }else{
-        res.send('Você buscou por: '+req.query.busca);
+        // res.send('Você buscou ;por: '+req.query.busca);
+        res.render('busca',{})
     }
 });
 
 app.get('/:slug',(req,res)=>{ // pagina individual da notícia
-    res.send(req.params.slug)
+    //res.send(req.params.slug)
+    res.render('single',{});
 });
 
 app.listen(3000,()=>{
