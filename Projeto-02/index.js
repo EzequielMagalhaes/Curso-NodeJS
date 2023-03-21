@@ -1,7 +1,14 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
+
+mongoose.connect('mongodb+srv://Zekiel:5mmOXfV2HSCNPnFN@cluster0.b9lahkf.mongodb.net/?retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopology: true}).then(()=>{
+    console.log('MongoDB conectado com sucesso');// Caso ocorra tudo certo;
+}).catch((err)=>{
+    console.log(err.message);// Exibe mensagem de erro;
+})
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -14,7 +21,7 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, '/views'));
 
 app.get('/',(req,res)=>{ // pagina home
-    console.log(req.query); // url:port/'?busca= xx'
+    console.log(req.query); // url:port/?busca=xxx
     
     if(req.query.busca == null){
         res.render('home',{});
