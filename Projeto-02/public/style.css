@@ -278,6 +278,7 @@ section.other-news h2{
 
 .box-most-viewed img{
     width: 30%;
+    height: 150px;
     border-radius: 10px;
 }
 
@@ -340,14 +341,6 @@ section.news{
     margin-right: 2%;
 }
 
-.author-name{
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    font-size: 13px;
-    font-weight: bold;
-    color: #858585;
-}
-
 .news-single h2{
     color: #303336;
     font-size: 42px;
@@ -365,6 +358,46 @@ section.news{
     font-size: 15px;
     line-height: 25px;
     margin-top: 15px;
+}
+
+.author {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: bold;
+    color: #858585;
+}
+
+.author-content{
+    display: flex;
+    align-items: center;
+}
+
+.author button{
+    font-size: 20px;
+    border: 0;
+    cursor: pointer;
+    margin-left: 350px;
+}
+
+.author img{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+@media screen and (max-width:1024px){
+    .author button{
+        margin-left: 200px;
+    }
+
+    .box-most-viewed img{   
+        max-height: 120px;
+    }
 }
 
 @media screen and (max-width:768px) {
@@ -419,4 +452,9 @@ section.news{
     .most-viewed{
         margin: 10px;
     }
+
+    .author button{
+        margin-left: 100px;
+    }
 }
+

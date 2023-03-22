@@ -37,5 +37,6 @@ app.get('/:slug',(req,res)=>{ // pagina individual da notícia
 });
 
 app.listen(3000,()=>{
+    //require('child_process').exec(`start "Google Chrome": http://localhost:3000/`); // para abrir automaticamente o localhost
     console.log('Server rodando!');
 });
