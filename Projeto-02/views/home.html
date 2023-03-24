@@ -5,12 +5,12 @@
             <div class="featured-img">
                 <div class="featured-overlay"></div><!--div vazia-->
                 <div class="featured-title-description">
-                    <a href="/home">
-                        <h2>Campos verdes montanhosos</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sodales quis leo eu pulvinar. Nam et venenatis orci. Morbi purus ipsum, mattis in dictum eget, rutrum vitae enim. Quisque nec hendrerit purus.</p>
+                    <a href="<%= news[2].slug %>">
+                        <h2><%= news[2].title %></h2>
+                        <p><%- news[2].shortContent %>...</p>
                     </a>
                 </div><!--título da notícia destaque-->
-                <img src="../public/images/landscape.jpg" alt="Notícia destaque"/>
+                <img src="<%= news[2].image %>" alt="Notícia destaque"/>
             </div><!--img da notícia destaque-->
         </div><!--center-->
     </section><!--notícias em destaque-->
