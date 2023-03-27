@@ -26,7 +26,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', (req, res) => { // pagina home
     console.log(req.query);  // url:port/?busca= xxx
-        if (req.query.busca == null) {
+        if (!req.query.busca) {
     News.find({}).sort({ '_id': -1 }).then((news) => {
         news = news.map((val)=>{
             return {
@@ -51,10 +51,13 @@ app.get('/', (req, res) => { // pagina home
 
 app.get('/:slug', (req, res) => { // pagina individual da notícia
     //res.send(req.params.slug)                  /* $inc pra incrementar o campo views*/
-    News.findOneAndUpdate({slug: req.params.slug}, {$inc: {views: 1}}, {new: true},(err,response)=>{ // vai precisar usar promises, nodejs...
-        console.log(resposta);
-        res.render('single', {});
-    }) // começa a filtrar o que vem do banco de dados
+    News.findOneAndUpdate({slug: req.params.slug}, {$inc: {views: 1}}, {new: true}).then((response)=>{ // começa a filtrar o que vem do banco de dados
+        //console.log(response);
+        res.render('single', {news:response});
+    }).catch((err)=>{
+        console.log(err.message);
+        res.sendStatus(500);
+    });
 });
 
 app.listen(3000, () => {
