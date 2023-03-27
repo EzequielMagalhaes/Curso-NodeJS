@@ -14,6 +14,7 @@ header{
 .center{
     max-width: 1280px;
     margin: 0 auto;
+    width: 100%;
     padding: 0 2%;
     display: flex;
     flex-wrap: wrap;
@@ -197,16 +198,17 @@ section.other-news h2{
 }
 
 .last-news{
-    width: 65%;
+    width: 60%;
     padding: 0 10px;
     display: flex;
     flex-wrap: wrap;
 }
 
 .box-last-news{
-    width: 47%;
-    margin-right: 3%;
+    width: 48%;
+    margin-right: 2%;
     background-color: #FFF;
+    margin-bottom: 10px;
     padding-bottom: 20px;
     border-radius: 10px;
     text-align: left;
@@ -214,6 +216,7 @@ section.other-news h2{
 
 .box-last-news img{
     width: 100%;
+    height: 200px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
@@ -254,7 +257,7 @@ section.other-news h2{
 }
 
 .most-viewed{
-    width: 35%;
+    width: 40%;
     background-color: #FFF;
     border-radius: 10px;
 }

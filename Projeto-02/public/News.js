@@ -8,7 +8,9 @@ var newsSchema = new Schema({
     image: String,
     category: String,
     content: String,
-    slug: String
+    slug: String,
+    author: String,
+    views: Number
 },{collections:'news'})
 
 var News = mongoose.model("News",newsSchema);

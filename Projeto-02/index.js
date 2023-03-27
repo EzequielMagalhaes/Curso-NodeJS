@@ -9,9 +9,9 @@ mongoose.connect('mongodb+srv://Zekiel:5mmOXfV2HSCNPnFN@cluster0.b9lahkf.mongodb
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => {
-    console.log('MongoDB conectado com sucesso');
+    console.log('MongoDB conectado com sucesso'); // caso ocorra tudo certo;
 }).catch((err) => {
-    console.log(err.message);
+    console.log(err.message); // exibe mensagem de erro;
 });
 
 app.use(bodyParser.json());
@@ -24,8 +24,8 @@ app.set('view engine', 'html');
 app.use('/public', express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 
-app.get('/', (req, res) => {
-    console.log(req.query);
+app.get('/', (req, res) => { // pagina home
+    console.log(req.query);  // url:port/?busca= xxx
         if (req.query.busca == null) {
     News.find({}).sort({ '_id': -1 }).then((news) => {
         news = news.map((val)=>{
@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
                 image: val.image,
                 category: val.category,
                 content: val.content,
-                shortContent: val.content.substring(0, 153), //campo nao precisa existir no BD para poder criar direto no código 
+                shortContent: val.content.substring(0, 152), //campo nao precisa existir no BD para poder criar direto no código 
                 slug: val.slug
             }
         })
@@ -49,10 +49,15 @@ app.get('/', (req, res) => {
     }
 });
 
-app.get('/:slug', (req, res) => {
-    res.render('single', {});
+app.get('/:slug', (req, res) => { // pagina individual da notícia
+    //res.send(req.params.slug)                  /* $inc pra incrementar o campo views*/
+    News.findOneAndUpdate({slug: req.params.slug}, {$inc: {views: 1}}, {new: true},(err,response)=>{ // vai precisar usar promises, nodejs...
+        console.log(resposta);
+        res.render('single', {});
+    }) // começa a filtrar o que vem do banco de dados
 });
 
 app.listen(3000, () => {
+    //require('child_process').exec(`start "Google Chrome": http://localhost:3000/`); // para abrir automaticamente o localhost
     console.log('Server rodando!');
 });
