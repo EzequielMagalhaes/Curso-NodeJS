@@ -301,6 +301,11 @@ section.other-news h2{
     font-size: 14px;
 }
 
+.box-most-viewed-half-news > span{
+    font-weight: bolder;
+    font-size: 12px;
+}
+
 .box-most-viewed-content a{
     display: block;
     font-weight: bolder;

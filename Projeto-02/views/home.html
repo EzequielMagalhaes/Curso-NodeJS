@@ -38,15 +38,15 @@
                     <div class="most-viewed-title">
                         <h3>Mais Lidas</h3>
                     </div>
-                    <% for (let i = 0; i < news.length; i++) { %>
+                    <% for (let i = 0; i < newsTop.length; i++) { %>
                     <div class="box-most-viewed">
-                        <img src="<%= news[i].image %>" alt="Notícia mais vista">
+                        <img src="<%= newsTop[i].image %>" alt="Notícia mais vista">
                         <div class="box-most-viewed-content">
-                            <h3 class="box-most-viewed-category"><%= news[i].category %></h3>
-                            <p class="box-most-viewed-half-news"><%- news[i].shortContent %> ...</p>
-                            <a href="/<%= news[i].slug %>">Ler mais</a>
+                            <h3 class="box-most-viewed-category"><%= newsTop[i].category %></h3>
+                            <p class="box-most-viewed-half-news"><%- newsTop[i].shortContent %>...<br/><span>(<%= newsTop[i].views %> visualizações)</span></p>
+                            <a href="/<%= newsTop[i].slug %>">Ler mais</a>
                         </div><!--conteudo da box sem a imagem-->
-                    </div><!--box das notícias mais vistas 1-->
+                    </div><!--box das notícias mais vistas-->
                     <% } %>
                 </div><!--notícias mais vistas-->
             </div><!--center-->
