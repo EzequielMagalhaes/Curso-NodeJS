@@ -301,9 +301,10 @@ section.other-news h2{
     font-size: 14px;
 }
 
-.box-most-viewed-half-news > span{
+.box-most-viewed-content span{
     font-weight: bolder;
     font-size: 12px;
+    color: #7B8591;
 }
 
 .box-most-viewed-content a{
@@ -370,7 +371,7 @@ section.news{
 
 .author {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     letter-spacing: 3px;
     text-transform: uppercase;
@@ -388,7 +389,6 @@ section.news{
     font-size: 20px;
     border: 0;
     cursor: pointer;
-    margin-left: 350px;
 }
 
 .author img{
@@ -396,6 +396,7 @@ section.news{
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    margin: 5px;
 }
 
 @media screen and (max-width:1024px){
