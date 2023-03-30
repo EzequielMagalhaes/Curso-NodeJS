@@ -26,41 +26,48 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', (req, res) => { // pagina home
     console.log(req.query);  // url:port/?busca= xxx
-        if (!req.query.busca) {
-    News.find({}).sort({ '_id': -1 }).then((news)=>{
-        const mappedNews = news.map((val)=>{
-            return {
-                title: val.title,
-                image: val.image,
-                category: val.category,
-                content: val.content,
-                shortContent: val.content.substring(0, 150), //campo nao precisa existir no BD para poder criar direto no código 
-                slug: val.slug
-            }
-        })
-
-        News.find({}).sort({'views': -1}).limit(3).then((newsTop)=>{
-            const mappedNewsTop = newsTop.map((val)=>{
-                return{
-                title: val.title,
-                image: val.image,
-                category: val.category,
-                content: val.content,
-                shortContent: val.content.substring(0, 150),
-                slug: val.slug,
-                views: val.views
+    if (!req.query.busca) {
+        News.find({}).sort({ '_id': -1 }).then((news)=>{
+            const mappedNews = news.map((val)=>{
+                return {
+                    title: val.title,
+                    image: val.image,
+                    category: val.category,
+                    content: val.content,
+                    shortContent: val.content.substring(0, 150), //campo nao precisa existir no BD para poder criar direto no código 
+                    slug: val.slug
                 }
             })
-            res.render('home', { news:mappedNews, newsTop: mappedNewsTop });
-        })
 
-    }).catch((err) => {
-        console.log(err.message);
-        res.sendStatus(500);
-    });
+            News.find({}).sort({'views': -1}).limit(3).then((newsTop)=>{
+                const mappedNewsTop = newsTop.map((val)=>{
+                    return{
+                    title: val.title,
+                    image: val.image,
+                    category: val.category,
+                    content: val.content,
+                    shortContent: val.content.substring(0, 150),
+                    slug: val.slug,
+                    views: val.views
+                    }
+                })
+                res.render('home', { news:mappedNews, newsTop: mappedNewsTop });
+            })
+
+        }).catch((err) => {
+            console.log(err.message);
+            res.sendStatus(500);
+        });
     } else {
-        res.render('busca', {});
-    }
+        News.find({title: {$regex: req.query.busca, $options: "i"}})
+            .then((news)=>{
+            console.log(news);
+            res.render('busca', {mappedNews, contagem:news.length});
+        }).catch((err)=>{
+            console.log(err.message);
+            res.sendStatus(500);
+        });
+    };
 });
 
 app.get('/:slug', (req, res) => { // pagina individual da notícia
@@ -82,6 +89,8 @@ app.get('/:slug', (req, res) => { // pagina individual da notícia
                 })
                 res.render('single', {news:response, newsTop:mappedNewsTop});
             })
+        }else{
+            res.redirect('/');
         }
 
     }).catch((err)=>{
