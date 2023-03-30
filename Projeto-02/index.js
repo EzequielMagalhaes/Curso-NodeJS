@@ -59,15 +59,25 @@ app.get('/', (req, res) => { // pagina home
             res.sendStatus(500);
         });
     } else {
-        News.find({title: {$regex: req.query.busca, $options: "i"}})
-            .then((news)=>{
+        News.find({ title: { $regex: req.query.busca, $options: "i" }})
+          .then((news) => {
             console.log(news);
-            res.render('busca', {mappedNews, contagem:news.length});
-        }).catch((err)=>{
+            const mappedNews = news.map((val) => ({
+              title: val.title,
+              image: val.image,
+              category: val.category,
+              content: val.content,
+              shortContent: val.content.substring(0, 150),
+              slug: val.slug,
+              views: val.views
+            }));
+            res.render('busca', { news: mappedNews, contagem: mappedNews.length });
+          })
+          .catch((err) => {
             console.log(err.message);
             res.sendStatus(500);
-        });
-    };
+          });
+      }      
 });
 
 app.get('/:slug', (req, res) => { // pagina individual da notícia
